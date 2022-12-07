@@ -4,6 +4,8 @@ arguments
 
 Functions:
     * run
+    * search_for_type_hints
+    * search_func_def
 """
 
 import ast
@@ -86,6 +88,8 @@ def search_for_type_hints(lines: list, file_path:str) -> None:
                     lst.append(lines[id])
 
                     id += 1
+                    if id == len(lines):
+                        break
 
             f_def = reduce(lambda x, y: x.rstrip() + " " + y.lstrip(), lst)
 
